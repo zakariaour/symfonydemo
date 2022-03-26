@@ -34,7 +34,7 @@ services:
       ports:
         - "${PMA_HTTP_PORT}:80"
       volumes:
-        - /sessions
+        - pma_sessions:/sessions
 
     # PostgreSQL
     pgdb:
@@ -95,3 +95,4 @@ volumes:
   pg_data:
   maria_data:
   pgadmin:
+  pma_sessions:
