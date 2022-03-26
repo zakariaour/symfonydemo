@@ -77,6 +77,12 @@ make pgshell
 
 # Se connecter à psql dans le container PostgreSQL
 make psql
+
+# Se connecter au container MariaDB
+make myshell
+
+# Se connecter à mysql dans le container MariaDB
+make mysql
 ```
 
 ## Test de la configuration
