@@ -16,7 +16,7 @@ pgshell:
 
 psql:
 	# Start PostgreSQL command line inside container
-	docker-compose exec pgdb psql -h pgdb -U postgres
+	docker-compose exec pgdb psql -h pgdb -d appdb -U postgres
 
 myshell:
 	# Connect to MariaDB container
