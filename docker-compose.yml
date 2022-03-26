@@ -74,7 +74,7 @@ services:
       working_dir: /application
       restart: always
       volumes:
-          - 'app:/application'
+          - ./app:/application
           - './phpdocker/nginx/nginx.conf:/etc/nginx/conf.d/default.conf'
       ports:
        - "${NGINX_HTTP_PORT}:80"
@@ -83,8 +83,8 @@ services:
       build: phpdocker/php-fpm
       working_dir: /application
       volumes:
-        - 'app:/application'
-        - ''./phpdocker/php-fpm/php-ini-overrides.ini:/etc/php/${PHP_VERSION}/fpm/conf.d/99-overrides.ini'
+        - ./app:/application
+        - './phpdocker/php-fpm/php-ini-overrides.ini:/etc/php/${PHP_VERSION}/fpm/conf.d/99-overrides.ini'
 
 # ======================================================================================================================
 # VOLUMES
