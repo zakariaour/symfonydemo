@@ -12,8 +12,16 @@ downwipe:
 
 pgshell:
 	# Connect to PostgreSQL container
-	docker-compose exec db bash
+	docker-compose exec pgdb bash
 
 psql:
 	# Start PostgreSQL command line inside container
 	docker-compose exec pgdb psql -h pgdb -U postgres
+
+myshell:
+	# Connect to MariaDB container
+	docker-compose exec mariadb bash
+
+mysql:
+	# Start mysql command line inside container
+	docker-compose exec mariadb mysql --host mariadb --database appdb --user appuser --password
