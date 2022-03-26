@@ -25,3 +25,7 @@ myshell:
 mysql:
 	# Start mysql command line inside container
 	docker-compose exec mariadb mysql --host mariadb --database appdb --user appuser --password
+
+phpshell:
+	# Start bash inside PHP container
+	docker-compose exec php-fpm bash
