@@ -2,17 +2,36 @@
 
 Ensemble de containers pour du développement PHP _vanilla_ avec bases de données.
 
-> Sur une base générée par https://phpdocker.io
-
 * Serveur **Nginx**
 * **PHP**
 * **PostgreSQL** + pgAdmin
 * **MariaDB** + phpMyAdmin
 
+> Sur une base générée par https://phpdocker.io
 
-## Services
 
-| Service | Description | Port interne | Adresse par défaut |
+---
+## Sommaire
+<!-- vscode-markdown-toc -->
+* [Services](#Services)
+* [Identifiants](#Identifiants)
+* [Configuration automatique des serveurs dans pgAdmin](#ConfigurationautomatiquedesserveursdanspgAdmin)
+* [Démarrage manuel des containers](#Dmarragemanueldescontainers)
+* [Arrêt manuel des containers](#Arrtmanueldescontainers)
+* [Démarrage et arrêt des containers par `make`](#Dmarrageetarrtdescontainersparmake)
+* [Test de la configuration](#Testdelaconfiguration)
+
+<!-- vscode-markdown-toc-config
+	numbering=false
+	autoSave=true
+	/vscode-markdown-toc-config -->
+<!-- /vscode-markdown-toc -->
+---
+
+
+## <a name='Services'></a>Services
+
+| Service | Description | Port interne | Port externe |
 |---|---|---|---|
 | `webserver` | Serveur Nginx | 80 | 3000 |
 | `php-fpm` | PHP | | |
@@ -21,14 +40,16 @@ Ensemble de containers pour du développement PHP _vanilla_ avec bases de donné
 | `mariadb` | Serveur de bases de données MariaDB | 3306 | 3002
 | `phpmyadmin` | Interface d'administration pour MariaDB | 80 | 5051
 
+- Le **port interne** est interne au container.
+- Le **port externe** est exposé par le container.
 
-## Identifiants
+## <a name='Identifiants'></a>Identifiants
 
 > Voir le fichier `.env`
 
 
 
-# Configuration automatique des serveurs dans pgAdmin
+## <a name='ConfigurationautomatiquedesserveursdanspgAdmin'></a>Configuration automatique des serveurs dans pgAdmin
 
 Il est possible de faire en sorte que le **serveur PostgreSQL** doit référencé automatiquement dans **pgAdmin**.
 
@@ -44,7 +65,7 @@ sudo chown 5050:5050 servers.json
 En cas d'oubli, vous avez toujours la possibilité d'ajouter le serveur `pgdb` manuellement à pgAdmin, après son lancement.
 
 
-## Démarrage des containers
+## <a name='Dmarragemanueldescontainers'></a>Démarrage manuel des containers
 
 ```bash
 docker-compose up -d
@@ -52,13 +73,13 @@ docker-compose up -d
 
 > **Note :** Les containers de base de données peuvent mettre un certain temps à s'initialiser.
 
-## Arrêt des containers
+## <a name='Arrtmanueldescontainers'></a>Arrêt manuel des containers
 
 ```bash
 docker-compose down
 ```
 
-## Démarrage et arrêt des containers par `make`
+## <a name='Dmarrageetarrtdescontainersparmake'></a>Démarrage et arrêt des containers par `make`
 
 > Un `makefile` est également fourni pour simplifier la gestion des containers. Les commandes suivantes sont disponibles :
 
@@ -83,16 +104,20 @@ make myshell
 
 # Se connecter à mysql dans le container MariaDB
 make mysql
+
+# Se connecter au container PHP-FPM
+# (permet notamment d'utiliser Composer)
+make phpshell
 ```
 
-## Test de la configuration
+## <a name='Testdelaconfiguration'></a>Test de la configuration
 
 * Un dossier `app` doit être créé pour le serveur Nginx. 
 * Le projet PHP sera placé dans `app`. 
 * Pour tester l'environnement :
 
     1. Démarrez les containers.
-    2. Créez une page `public/index.php` avec ce contenu :
+    2. Créez une page `app/index.php` avec ce contenu :
     ```php
     <?php phpinfo();
     ```
