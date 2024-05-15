@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bienvenue chez Computerz !{% endblock %}
+
+{% block body %}
+<style>
+    body {
+        background-color: white !important;
+    }
+    .hero-image {
+        background-size: cover;
+        background-position: center;
+        height: 300px;
+        position: relative;
+        color: white;
+        text-align: center;
+    }
+    .hero-image h1 {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .promo {
+        background: rgba(0, 0, 0, 0.7);
+        padding: 20px;
+        display: inline-block;
+    }
+    .card-body img {
+        width: 100%;
+        height: auto;
+    }
+    .btn-link {
+    color: #007bff; /* Bleu de lien standard, ajustez selon vos préférences */
+    padding: 0; /* Enlève le padding pour un look plus plat */
+    font-weight: normal; /* Enlève le gras */
+    }
+
+</style>
+
+<div class="hero-image">
+    <h1 class="promo">Bienvenue chez Computerz !</h1>
+</div>
+<img src="{{ asset('images/promo.jpg') }}" alt="promo">
+
+<div class="container my-5">
+    <div class="row text-center">
+        <div class="col-md-4">
+            <h2>Notre boutique</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <p>Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit, nec luctus magna felis sollicitudin mauris. Integer in mauris eu nibh euismod gravida. Duis ac tellus et risus vulputate vehicula. Donec lobortis risus a elit. Etiam tempor. Ut ullamcorper, ligula eu tempor congue, eros est euismod turpis, id tincidunt sapien risus a quam..</p>
+        </div>
+        <div class="col-md-4">
+            <h2>Nos services</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <p>Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit, nec luctus magna felis sollicitudin mauris. Integer in mauris eu nibh euismod gravida. Duis ac tellus et risus vulputate vehicula. Donec lobortis risus a elit. Etiam tempor. Ut ullamcorper, ligula eu tempor congue, eros est euismod turpis, id tincidunt sapien risus a quam..</p>
+            <a href="#" class="btn btn-link">En savoir plus</a>
+        </div>
+        <div class="col-md-4">
+            <h2>Notre catalogue</h2>
+            <p>Notre catalogue d'ordinateurs vous propose plus de 300 modèles (neufs et occasions)</p>
+            <img src="{{ asset('images/dell-xps-13-7390.jpg') }}" alt="catalogue">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+            <a href="#" class="btn btn-link">Consultez le catalogue Ordinateurs</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
